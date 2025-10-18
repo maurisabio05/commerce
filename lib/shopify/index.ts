@@ -8,6 +8,7 @@ import { ensureStartsWith } from 'lib/utils';
 import {
   revalidateTag
 } from 'next/cache';
+import * as localData from '../local-data';
 import { cookies, headers } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import {
@@ -220,7 +221,7 @@ const reshapeProducts = (products: ShopifyProduct[]) => {
 
 export async function createCart(): Promise<Cart> {
   if (!isShopifyConfigured()) {
-    return { id: '', checkoutUrl: '', cost: { subtotalAmount: { amount: '0', currencyCode: 'USD' }, totalAmount: { amount: '0', currencyCode: 'USD' }, totalTaxAmount: { amount: '0', currencyCode: 'USD' } }, lines: [], totalQuantity: 0 };
+    return localData.createCart();
   }
 
   const res = await shopifyFetch<ShopifyCreateCartOperation>({
@@ -234,7 +235,7 @@ export async function addToCart(
   lines: { merchandiseId: string; quantity: number }[]
 ): Promise<Cart> {
   if (!isShopifyConfigured()) {
-    return { id: '', checkoutUrl: '', cost: { subtotalAmount: { amount: '0', currencyCode: 'USD' }, totalAmount: { amount: '0', currencyCode: 'USD' }, totalTaxAmount: { amount: '0', currencyCode: 'USD' } }, lines: [], totalQuantity: 0 };
+    return localData.addToCart(lines);
   }
 
   const cartId = (await cookies()).get('cartId')?.value!;
@@ -250,7 +251,7 @@ export async function addToCart(
 
 export async function removeFromCart(lineIds: string[]): Promise<Cart> {
   if (!isShopifyConfigured()) {
-    return { id: '', checkoutUrl: '', cost: { subtotalAmount: { amount: '0', currencyCode: 'USD' }, totalAmount: { amount: '0', currencyCode: 'USD' }, totalTaxAmount: { amount: '0', currencyCode: 'USD' } }, lines: [], totalQuantity: 0 };
+    return localData.removeFromCart(lineIds);
   }
 
   const cartId = (await cookies()).get('cartId')?.value!;
@@ -269,7 +270,7 @@ export async function updateCart(
   lines: { id: string; merchandiseId: string; quantity: number }[]
 ): Promise<Cart> {
   if (!isShopifyConfigured()) {
-    return { id: '', checkoutUrl: '', cost: { subtotalAmount: { amount: '0', currencyCode: 'USD' }, totalAmount: { amount: '0', currencyCode: 'USD' }, totalTaxAmount: { amount: '0', currencyCode: 'USD' } }, lines: [], totalQuantity: 0 };
+    return localData.updateCart(lines);
   }
 
   const cartId = (await cookies()).get('cartId')?.value!;
@@ -286,7 +287,7 @@ export async function updateCart(
 
 export async function getCart(): Promise<Cart | undefined> {
   if (!isShopifyConfigured()) {
-    return undefined;
+    return localData.getCart();
   }
   
   const cartId = (await cookies()).get('cartId')?.value;
@@ -312,7 +313,7 @@ export async function getCollection(
   handle: string
 ): Promise<Collection | undefined> {
   if (!isShopifyConfigured()) {
-    return undefined;
+    return localData.getCollection(handle);
   }
 
   const res = await shopifyFetch<ShopifyCollectionOperation>({
@@ -335,7 +336,7 @@ export async function getCollectionProducts({
   sortKey?: string;
 }): Promise<Product[]> {
   if (!isShopifyConfigured()) {
-    return [];
+    return localData.getCollectionProducts({ collection, reverse, sortKey });
   }
 
   const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
@@ -359,7 +360,7 @@ export async function getCollectionProducts({
 
 export async function getCollections(): Promise<Collection[]> {
   if (!isShopifyConfigured()) {
-    return [];
+    return localData.getCollections();
   }
 
   const res = await shopifyFetch<ShopifyCollectionsOperation>({
@@ -390,7 +391,7 @@ export async function getCollections(): Promise<Collection[]> {
 
 export async function getMenu(handle: string): Promise<Menu[]> {
   if (!isShopifyConfigured()) {
-    return [];
+    return localData.getMenu(handle);
   }
 
   const res = await shopifyFetch<ShopifyMenuOperation>({
@@ -413,7 +414,7 @@ export async function getMenu(handle: string): Promise<Menu[]> {
 
 export async function getPage(handle: string): Promise<Page> {
   if (!isShopifyConfigured()) {
-    return { id: '', title: '', handle: '', body: '', bodySummary: '', seo: { title: '', description: '' }, createdAt: '', updatedAt: '' };
+    return localData.getPage(handle);
   }
 
   const res = await shopifyFetch<ShopifyPageOperation>({
@@ -426,7 +427,7 @@ export async function getPage(handle: string): Promise<Page> {
 
 export async function getPages(): Promise<Page[]> {
   if (!isShopifyConfigured()) {
-    return [];
+    return localData.getPages();
   }
 
   const res = await shopifyFetch<ShopifyPagesOperation>({
@@ -438,7 +439,7 @@ export async function getPages(): Promise<Page[]> {
 
 export async function getProduct(handle: string): Promise<Product | undefined> {
   if (!isShopifyConfigured()) {
-    return undefined;
+    return localData.getProduct(handle);
   }
 
   const res = await shopifyFetch<ShopifyProductOperation>({
@@ -455,7 +456,7 @@ export async function getProductRecommendations(
   productId: string
 ): Promise<Product[]> {
   if (!isShopifyConfigured()) {
-    return [];
+    return localData.getProductRecommendations(productId);
   }
 
   const res = await shopifyFetch<ShopifyProductRecommendationsOperation>({
@@ -478,7 +479,7 @@ export async function getProducts({
   sortKey?: string;
 }): Promise<Product[]> {
   if (!isShopifyConfigured()) {
-    return [];
+    return localData.getProducts({ query, reverse, sortKey });
   }
 
   const res = await shopifyFetch<ShopifyProductsOperation>({
