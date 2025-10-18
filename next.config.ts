@@ -1,8 +1,8 @@
 export default {
   experimental: {
     ppr: true,
-    inlineCss: true,
-    useCache: true
+    inlineCss: true
+    // useCache: true // Disabled due to cache compatibility issues
   },
   images: {
     formats: ['image/avif', 'image/webp'],
