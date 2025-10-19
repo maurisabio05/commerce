@@ -1,24 +1,30 @@
-import { Product, Collection, Menu, Cart, Page } from './shopify/types';
-import productsData from '../data/products.json';
+// ===== SISTEMA DE DATOS LOCALES =====
+// Este archivo reemplaza las llamadas a Shopify con datos del archivo JSON local
+// Aquí puedes personalizar cómo se obtienen y filtran los productos
 
-// Función helper para simular delay de API
+import { Product, Collection, Menu, Cart, Page } from './shopify/types';
+import productsData from '../data/products.json'; // Importar datos desde el archivo JSON
+
+// Función helper para simular delay de API (hace que se sienta más realista)
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Función para obtener todos los productos
+// ===== OBTENER TODOS LOS PRODUCTOS =====
+// Esta función devuelve productos con filtrado y ordenamiento
+// PERSONALIZACIÓN: Aquí puedes cambiar cómo se filtran y ordenan los productos
 export async function getProducts({
   query,
   reverse,
   sortKey
 }: {
-  query?: string;
-  reverse?: boolean;
-  sortKey?: string;
+  query?: string; // Texto de búsqueda
+  reverse?: boolean; // Si invertir el orden
+  sortKey?: string; // Criterio de ordenamiento
 } = {}): Promise<Product[]> {
-  await delay(100); // Simular delay de API
+  await delay(100); // Simular delay de API para realismo
   
   let products = [...productsData.products] as Product[];
   
-  // Filtrar por query si se proporciona
+  // FILTRADO POR BÚSQUEDA
   if (query) {
     products = products.filter(product => 
       product.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -27,23 +33,22 @@ export async function getProducts({
     );
   }
   
-  // Ordenar productos
+  // ORDENAMIENTO DE PRODUCTOS
   if (sortKey) {
     products.sort((a, b) => {
       let comparison = 0;
       
       switch (sortKey) {
-        case 'PRICE':
+        case 'PRICE': // Ordenar por precio
           comparison = parseFloat(a.priceRange.minVariantPrice.amount) - parseFloat(b.priceRange.minVariantPrice.amount);
           break;
-        case 'CREATED_AT':
+        case 'CREATED_AT': // Ordenar por fecha de creación
           comparison = new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime();
           break;
-        case 'BEST_SELLING':
-          // Para demo, usar orden aleatorio
+        case 'BEST_SELLING': // Más vendidos (simulado con orden aleatorio)
           comparison = Math.random() - 0.5;
           break;
-        default:
+        default: // Ordenar alfabéticamente por título
           comparison = a.title.localeCompare(b.title);
       }
       
