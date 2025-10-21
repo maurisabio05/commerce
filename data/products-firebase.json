@@ -4,8 +4,8 @@
       "id": "product-1",
       "handle": "camiseta-basica-negra",
       "title": "Camiseta Básica Negra",
-      "description": "Camiseta básica de algodón 100% en color negro. Perfecta para el día a día.",
-      "descriptionHtml": "<p>Camiseta básica de algodón 100% en color negro. Perfecta para el día a día.</p>",
+      "description": "Camiseta básica de algodón en color negro. Perfecta para el día a día.",
+      "descriptionHtml": "<p>Camiseta básica de algodón en color negro. Perfecta para el día a día.</p>",
       "availableForSale": true,
       "tags": {
         "ropa": true,
