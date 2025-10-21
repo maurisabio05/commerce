@@ -1,0 +1,422 @@
+{
+  "products": {
+    "product-1": {
+      "id": "product-1",
+      "handle": "camiseta-basica-negra",
+      "title": "Camiseta Básica Negra",
+      "description": "Camiseta básica de algodón 100% en color negro. Perfecta para el día a día.",
+      "descriptionHtml": "<p>Camiseta básica de algodón 100% en color negro. Perfecta para el día a día.</p>",
+      "availableForSale": true,
+      "tags": {
+        "ropa": true,
+        "camisetas": true,
+        "basico": true
+      },
+      "categories": {
+        "collection-1": true
+      },
+      "priceRange": {
+        "maxVariantPrice": {
+          "amount": "25.99",
+          "currencyCode": "USD"
+        },
+        "minVariantPrice": {
+          "amount": "25.99",
+          "currencyCode": "USD"
+        }
+      },
+      "featuredImage": {
+        "url": "/images/products/placeholder.svg",
+        "altText": "Camiseta básica negra",
+        "width": 800,
+        "height": 800
+      },
+      "images": {
+        "image-1": {
+          "url": "/images/products/placeholder.svg",
+          "altText": "Camiseta básica negra - frente",
+          "width": 800,
+          "height": 800,
+          "order": 1
+        },
+        "image-2": {
+          "url": "/images/products/placeholder.svg",
+          "altText": "Camiseta básica negra - espalda",
+          "width": 800,
+          "height": 800,
+          "order": 2
+        }
+      },
+      "variants": {
+        "variant-1-s": {
+          "id": "variant-1-s",
+          "title": "S",
+          "availableForSale": true,
+          "inventory": 10,
+          "selectedOptions": {
+            "Talla": "S"
+          },
+          "price": {
+            "amount": "25.99",
+            "currencyCode": "USD"
+          }
+        },
+        "variant-1-m": {
+          "id": "variant-1-m",
+          "title": "M",
+          "availableForSale": true,
+          "inventory": 15,
+          "selectedOptions": {
+            "Talla": "M"
+          },
+          "price": {
+            "amount": "25.99",
+            "currencyCode": "USD"
+          }
+        },
+        "variant-1-l": {
+          "id": "variant-1-l",
+          "title": "L",
+          "availableForSale": true,
+          "inventory": 8,
+          "selectedOptions": {
+            "Talla": "L"
+          },
+          "price": {
+            "amount": "25.99",
+            "currencyCode": "USD"
+          }
+        }
+      },
+      "options": {
+        "option-1": {
+          "id": "option-1",
+          "name": "Talla",
+          "values": {
+            "S": true,
+            "M": true,
+            "L": true
+          }
+        }
+      },
+      "seo": {
+        "title": "Camiseta Básica Negra - Tu Tienda",
+        "description": "Camiseta básica de algodón 100% en color negro. Cómoda y versátil."
+      },
+      "metadata": {
+        "featured": false,
+        "carousel": true,
+        "weight": 0.5,
+        "material": "Algodón 100%",
+        "brand": "Tu Marca",
+        "sku": "CAM-NEG-001"
+      },
+      "timestamps": {
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    "product-2": {
+      "id": "product-2",
+      "handle": "jeans-clasicos-azul",
+      "title": "Jeans Clásicos Azul",
+      "description": "Jeans clásicos de corte recto en color azul índigo. Fabricados con denim de alta calidad.",
+      "descriptionHtml": "<p>Jeans clásicos de corte recto en color azul índigo. Fabricados con denim de alta calidad.</p>",
+      "availableForSale": true,
+      "tags": {
+        "ropa": true,
+        "jeans": true,
+        "pantalones": true
+      },
+      "categories": {
+        "collection-1": true
+      },
+      "priceRange": {
+        "maxVariantPrice": {
+          "amount": "79.99",
+          "currencyCode": "USD"
+        },
+        "minVariantPrice": {
+          "amount": "79.99",
+          "currencyCode": "USD"
+        }
+      },
+      "featuredImage": {
+        "url": "/images/products/placeholder.svg",
+        "altText": "Jeans clásicos azul",
+        "width": 800,
+        "height": 800
+      },
+      "images": {
+        "image-1": {
+          "url": "/images/products/placeholder.svg",
+          "altText": "Jeans clásicos azul",
+          "width": 800,
+          "height": 800,
+          "order": 1
+        }
+      },
+      "variants": {
+        "variant-2-30": {
+          "id": "variant-2-30",
+          "title": "30",
+          "availableForSale": true,
+          "inventory": 5,
+          "selectedOptions": {
+            "Talla": "30"
+          },
+          "price": {
+            "amount": "79.99",
+            "currencyCode": "USD"
+          }
+        },
+        "variant-2-32": {
+          "id": "variant-2-32",
+          "title": "32",
+          "availableForSale": true,
+          "inventory": 12,
+          "selectedOptions": {
+            "Talla": "32"
+          },
+          "price": {
+            "amount": "79.99",
+            "currencyCode": "USD"
+          }
+        },
+        "variant-2-34": {
+          "id": "variant-2-34",
+          "title": "34",
+          "availableForSale": true,
+          "inventory": 7,
+          "selectedOptions": {
+            "Talla": "34"
+          },
+          "price": {
+            "amount": "79.99",
+            "currencyCode": "USD"
+          }
+        }
+      },
+      "options": {
+        "option-2": {
+          "id": "option-2",
+          "name": "Talla",
+          "values": {
+            "30": true,
+            "32": true,
+            "34": true
+          }
+        }
+      },
+      "seo": {
+        "title": "Jeans Clásicos Azul - Tu Tienda",
+        "description": "Jeans clásicos de corte recto en color azul índigo. Calidad premium."
+      },
+      "metadata": {
+        "featured": true,
+        "carousel": false,
+        "weight": 1.2,
+        "material": "Denim 98% Algodón, 2% Elastano",
+        "brand": "Tu Marca",
+        "sku": "JEA-AZU-001"
+      },
+      "timestamps": {
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    "product-3": {
+      "id": "product-3",
+      "handle": "zapatillas-deportivas-blancas",
+      "title": "Zapatillas Deportivas Blancas",
+      "description": "Zapatillas deportivas cómodas en color blanco. Ideales para ejercicio y uso casual.",
+      "descriptionHtml": "<p>Zapatillas deportivas cómodas en color blanco. Ideales para ejercicio y uso casual.</p>",
+      "availableForSale": true,
+      "tags": {
+        "calzado": true,
+        "zapatillas": true,
+        "deportivo": true
+      },
+      "categories": {
+        "collection-2": true
+      },
+      "priceRange": {
+        "maxVariantPrice": {
+          "amount": "129.99",
+          "currencyCode": "USD"
+        },
+        "minVariantPrice": {
+          "amount": "129.99",
+          "currencyCode": "USD"
+        }
+      },
+      "featuredImage": {
+        "url": "/images/products/placeholder.svg",
+        "altText": "Zapatillas deportivas blancas",
+        "width": 800,
+        "height": 800
+      },
+      "images": {
+        "image-1": {
+          "url": "/images/products/placeholder.svg",
+          "altText": "Zapatillas deportivas blancas",
+          "width": 800,
+          "height": 800,
+          "order": 1
+        }
+      },
+      "variants": {
+        "variant-3-39": {
+          "id": "variant-3-39",
+          "title": "39",
+          "availableForSale": true,
+          "inventory": 3,
+          "selectedOptions": {
+            "Talla": "39"
+          },
+          "price": {
+            "amount": "129.99",
+            "currencyCode": "USD"
+          }
+        },
+        "variant-3-40": {
+          "id": "variant-3-40",
+          "title": "40",
+          "availableForSale": true,
+          "inventory": 8,
+          "selectedOptions": {
+            "Talla": "40"
+          },
+          "price": {
+            "amount": "129.99",
+            "currencyCode": "USD"
+          }
+        },
+        "variant-3-41": {
+          "id": "variant-3-41",
+          "title": "41",
+          "availableForSale": true,
+          "inventory": 6,
+          "selectedOptions": {
+            "Talla": "41"
+          },
+          "price": {
+            "amount": "129.99",
+            "currencyCode": "USD"
+          }
+        }
+      },
+      "options": {
+        "option-3": {
+          "id": "option-3",
+          "name": "Talla",
+          "values": {
+            "39": true,
+            "40": true,
+            "41": true
+          }
+        }
+      },
+      "seo": {
+        "title": "Zapatillas Deportivas Blancas - Tu Tienda",
+        "description": "Zapatillas deportivas cómodas en color blanco. Perfectas para cualquier actividad."
+      },
+      "metadata": {
+        "featured": true,
+        "carousel": true,
+        "weight": 0.8,
+        "material": "Sintético con malla transpirable",
+        "brand": "Tu Marca",
+        "sku": "ZAP-BLA-001"
+      },
+      "timestamps": {
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z"
+      }
+    }
+  },
+  "collections": {
+    "collection-1": {
+      "id": "collection-1",
+      "handle": "ropa",
+      "title": "Ropa",
+      "description": "Toda nuestra colección de ropa",
+      "path": "/search/ropa",
+      "seo": {
+        "title": "Ropa - Tu Tienda",
+        "description": "Descubre nuestra colección de ropa de alta calidad"
+      },
+      "metadata": {
+        "order": 1,
+        "featured": true,
+        "color": "#3B82F6"
+      },
+      "timestamps": {
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z"
+      }
+    },
+    "collection-2": {
+      "id": "collection-2",
+      "handle": "calzado",
+      "title": "Calzado",
+      "description": "Toda nuestra colección de calzado",
+      "path": "/search/calzado",
+      "seo": {
+        "title": "Calzado - Tu Tienda",
+        "description": "Descubre nuestra colección de calzado cómodo y elegante"
+      },
+      "metadata": {
+        "order": 2,
+        "featured": true,
+        "color": "#10B981"
+      },
+      "timestamps": {
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z"
+      }
+    }
+  },
+  "menu": {
+    "main": {
+      "ropa": {
+        "title": "Ropa",
+        "path": "/search/ropa",
+        "order": 1,
+        "visible": true
+      },
+      "calzado": {
+        "title": "Calzado",
+        "path": "/search/calzado",
+        "order": 2,
+        "visible": true
+      },
+      "ofertas": {
+        "title": "Ofertas",
+        "path": "/search/ofertas",
+        "order": 3,
+        "visible": true
+      }
+    }
+  },
+  "settings": {
+    "store": {
+      "name": "Tu Tienda",
+      "description": "La mejor tienda online",
+      "currency": "USD",
+      "locale": "es-ES",
+      "timezone": "America/Argentina/Buenos_Aires"
+    },
+    "features": {
+      "inventory": true,
+      "reviews": false,
+      "wishlist": false,
+      "multiCurrency": false
+    },
+    "ui": {
+      "theme": "light",
+      "primaryColor": "#3B82F6",
+      "secondaryColor": "#10B981"
+    }
+  }
+}

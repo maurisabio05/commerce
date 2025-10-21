@@ -123,11 +123,17 @@ La tienda se adapta automáticamente a diferentes pantallas:
 
 ## 🚀 Próximos Pasos
 
+### **Desarrollo Actual (JSON Local)**
 1. **Agrega tus productos** en `data/products.json`
 2. **Sube tus imágenes** a `public/images/products/`
 3. **Personaliza colores** en `app/globals.css`
 4. **Cambia la información** en las variables de entorno
 5. **Prueba en diferentes dispositivos**
+
+### **Migración Futura (Firebase)**
+6. **Revisa la estructura Firebase** en `data/products-firebase.json`
+7. **Lee la guía de migración** en `MIGRATION_STEPS.md`
+8. **Implementa panel de admin** usando `lib/firebase-admin.ts`
 
 ## 💡 Tips Útiles
 

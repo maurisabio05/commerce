@@ -2,8 +2,18 @@
 // Este archivo reemplaza las llamadas a Shopify con datos del archivo JSON local
 // Aquí puedes personalizar cómo se obtienen y filtran los productos
 
+// 🔥 MIGRACIÓN A FIREBASE - PASOS FUTUROS:
+// 1. Reemplazar import de JSON por Firebase
+// 2. Cambiar todas las funciones para usar Firestore
+// 3. Agregar cache local para mejor performance
+// 4. Implementar funciones de administración
+
 import { Product, Collection, Menu, Cart, Page } from './shopify/types';
 import productsData from '../data/products.json'; // Importar datos desde el archivo JSON
+
+// TODO: Cuando migres a Firebase, reemplazar por:
+// import { db, COLLECTIONS } from './firebase'
+// import { collection, getDocs, doc, getDoc, query, where, orderBy, limit } from 'firebase/firestore'
 
 // Función helper para simular delay de API (hace que se sienta más realista)
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
@@ -24,7 +34,43 @@ export async function getProducts({
   
   let products = [...productsData.products] as Product[];
   
-  // FILTRADO POR BÚSQUEDA
+  // 🔥 TODO: MIGRACIÓN A FIREBASE
+  // Reemplazar todo este bloque por consultas de Firestore:
+  /*
+  const productsRef = collection(db, COLLECTIONS.PRODUCTS);
+  let q = query(productsRef);
+  
+  // Filtrado por búsqueda en Firebase
+  if (query) {
+    // Opción 1: Búsqueda por título (más eficiente)
+    q = query(productsRef, 
+      where('title', '>=', query),
+      where('title', '<=', query + '\uf8ff')
+    );
+    
+    // Opción 2: Para búsqueda más compleja, usar Algolia o cliente
+  }
+  
+  // Ordenamiento en Firebase
+  if (sortKey) {
+    switch (sortKey) {
+      case 'PRICE':
+        q = query(q, orderBy('priceRange.minVariantPrice.amount', reverse ? 'desc' : 'asc'));
+        break;
+      case 'CREATED_AT':
+        q = query(q, orderBy('timestamps.createdAt', reverse ? 'desc' : 'asc'));
+        break;
+      default:
+        q = query(q, orderBy('title', reverse ? 'desc' : 'asc'));
+    }
+  }
+  
+  const snapshot = await getDocs(q);
+  const products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[];
+  return products;
+  */
+  
+  // FILTRADO POR BÚSQUEDA (ACTUAL - JSON LOCAL)
   if (query) {
     products = products.filter(product => 
       product.title.toLowerCase().includes(query.toLowerCase()) ||
@@ -33,7 +79,7 @@ export async function getProducts({
     );
   }
   
-  // ORDENAMIENTO DE PRODUCTOS
+  // ORDENAMIENTO DE PRODUCTOS (ACTUAL - JSON LOCAL)
   if (sortKey) {
     products.sort((a, b) => {
       let comparison = 0;
@@ -62,6 +108,19 @@ export async function getProducts({
 // Función para obtener un producto por handle
 export async function getProduct(handle: string): Promise<Product | undefined> {
   await delay(100);
+  
+  // 🔥 TODO: MIGRACIÓN A FIREBASE
+  // Reemplazar por consulta directa a Firestore:
+  /*
+  const productDoc = doc(db, COLLECTIONS.PRODUCTS, handle);
+  const snapshot = await getDoc(productDoc);
+  
+  if (snapshot.exists()) {
+    return { id: snapshot.id, ...snapshot.data() } as Product;
+  }
+  return undefined;
+  */
+  
   return productsData.products.find(product => product.handle === handle) as Product | undefined;
 }
 
